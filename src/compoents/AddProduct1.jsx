@@ -6,7 +6,6 @@ const AddProductForm = () => {
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [category, setCategory] = useState('');
-  const [brand, setBrand] = useState('');
   const [image, setImage] = useState(null);
 
   const handleFileChange = (event) => {
@@ -22,7 +21,6 @@ const AddProductForm = () => {
       formData.append('description', description);
       formData.append('price', price);
       formData.append('categoryname', category);
-      formData.append('brandname', brand);
       formData.append('uploaded_file', image);
 
       await axios.post('http://localhost:8000/product/insert', formData, {
@@ -37,7 +35,6 @@ const AddProductForm = () => {
       setDescription('');
       setPrice('');
       setCategory('');
-      setBrand('');
       setImage(null);
     } catch (error) {
       console.error('Error adding product:', error);
@@ -67,15 +64,7 @@ const AddProductForm = () => {
           <option value="Laptop">Laptop</option>
         </select>
       </div>
-      <div>
-        <label>Brand:</label>
-        <select value={brand} onChange={(e) => setBrand(e.target.value)} required>
-          <option value="">Select brand...</option>
-          <option value="Vivo">Vivo</option>
-          <option value="Samsung">Samsung</option>
-          <option value="iPhone">iPhone</option>
-        </select>
-      </div>
+      
       <div>
         <label>Image:</label>
         <input type="file" onChange={handleFileChange} required />

@@ -15,27 +15,23 @@ function  Nav() {
     <div class="nav-item">
           <a class="nav-link p-2" href="/home">Home</a>
         </div>
-    <div class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle p-2" href="/samsung" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Samsung
-          </a>
+    {/* <div class="nav-item dropdown">
+          
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="/sphone">Mobile</a></li>
             <li><a class="dropdown-item" href="/slab">Laptop</a></li>
           </ul>
         </div>
         <div class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle p-2"  href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Vivo
-          </a>
+          
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href=" /vip">Mobile</a></li>
             <li><a class="dropdown-item" href="/vivolab">Laptop</a></li>
           </ul>
-        </div>
+        </div> */}
         <div class="nav-item dropdown">
           <a class="nav-link dropdown-toggle p-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            IPhone
+          categoryname
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="/ip">Mobile</a></li>

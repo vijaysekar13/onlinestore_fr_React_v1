@@ -26,6 +26,7 @@ import Payment from './compoents/Payment.jsx';
 import { User } from './compoents/User.jsx';
 import Footer from './compoents/Footer.jsx';
 import AddProductForm from './compoents/AddProduct1.jsx';
+import { UpdateUser } from './compoents/UpdateUser.js';
 
 
 function App() {
@@ -37,9 +38,9 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/signin' element={<Signin />} />
           <Route path='/Nav' element={<Nav />} />
-        
+          <Route path='/Uuser' element= {<UpdateUser />} />
           <Route path='/add' element={<AddProductForm />} />
-          <Route path='/home' element = {<Homepage />}></Route>
+          <Route path='/' element = {<Homepage />}></Route>
           <Route path='/samsung' element = {<Samsung />}></Route>
           <Route path='/sphone' element = {<SamsungPhone />}></Route>
           <Route path='/slab' element={<Sumsunglabtop />} />
@@ -51,7 +52,7 @@ function App() {
           <Route path='/ilb' element={<Iphonelab/>} />
           <Route path='/cart' element = {<Addcart />} />
           <Route path='/dashboard' element = {<Dashboard />} />
-          <Route path='/payment'element={<Payment/>}/>
+          <Route path='/pay'element={<Payment/>}/>
           <Route path='/footer' element = {<Footer />} />
 
           
@@ -59,7 +60,7 @@ function App() {
           
           {/* <Route path='/listproduct' element={<Productlist />}/> */}
           {/* <Route path='/Admin' element={<Admin />}/> */}
-          <Route path='/user' element={<User/>} />
+          <Route path='/User' element={<User/>} />
          
           <Route path='/' element={<ProductList />} />
           <Route path='/admin' element={<Admin1 />} />

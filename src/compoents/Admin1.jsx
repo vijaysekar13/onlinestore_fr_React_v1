@@ -31,7 +31,7 @@ function Admin1() {
 
   const loadProduct = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/product/update/${productid}`);
+      const response = await axios.get(`http://localhost:8000/product/update/${productid}`);
       setProduct(response.data);
       setSelectedCategory(response.data.categoryname); 
     } catch (error) {
@@ -41,7 +41,7 @@ function Admin1() {
 
   const loadCategories = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/categories");
+      const response = await axios.get("http://localhost:8000/categories");
       setCategories(response.data);
     } catch (error) {
       console.error("Error fetching categories:", error);
@@ -53,7 +53,7 @@ function Admin1() {
       const formData = new FormData();
       formData.append("file", selectedImage);
 
-      const response = await axios.post("http://localhost:8080/file/upload", formData);
+      const response = await axios.post("http://localhost:8000/file/upload", formData);
       setUploadImage(response.data);
       alert("Image uploaded successfully");
     } catch (error) {
@@ -74,7 +74,7 @@ function Admin1() {
     e.preventDefault();
     const updatedProduct = { ...product, image: uploadImage, categoryname: selectedCategory };
     try {
-      await axios.put(`http://localhost:8080/product/update/${productid}`, updatedProduct);
+      await axios.put(`http://localhost:8000/product/${productid}`, updatedProduct);
       navigate("/admin");
     } catch (error) {
       console.error("Error updating product:", error);
@@ -86,7 +86,7 @@ function Admin1() {
     const confirmed = window.confirm('Are you sure you want to delete this product?');
     if (!confirmed) return;
     try {
-      await axios.delete(`http://localhost:8080/product/delete/${productid}`);
+      await axios.delete(`http://localhost:8000/product/delete/${productid}`);
       navigate("/admin");
     } catch (error) {
       console.error('Error deleting product:', error);
@@ -101,7 +101,7 @@ function Admin1() {
     <div>
         <Nav fill variant="tabs" activeKey={activeLink} onSelect={handleSelect}>
                 <Nav.Item>
-                    <Nav.Link eventKey="/dashboard">Dashboard</Nav.Link>
+                    <Nav.Link eventKey="/dashboard">Product Table</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                     <Nav.Link eventKey="/addproduct">Addproduct</Nav.Link>

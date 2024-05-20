@@ -17,36 +17,36 @@ export const Login = () => {
         console.log(name, value);
     }
     const handleSubmit = (event) => {
-
         event.preventDefault();
-        console.log(formData);
-        const Check = {
-            username: formData.username,
-            password: formData.password
-        }
-        fetch(`http://localhost:8080/form/getuser?username=${formData.username}&password=${formData.password}`)
-         .then(response => {
-
-                if (response.status === 200) {
-                    console.log("datareceived", response);
-                    alert("singup seccessfully");
-                    navigate("/");
+        
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        };
+    
+        fetch('http://localhost:8000/user/login', requestOptions)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Login failed');
                 }
+                return response.json();
             })
-            .then((data) => {
+            .then(data => {
+                console.log("Login successful:", data);
+                alert("Login successful");
+                const userId = data.user._id;
+          sessionStorage.setItem("userId", userId);
+          console.log("UserId", userId)
 
-                if (data === !formData.username && data === !formData.password) {
-                    return alert("Enter valid details");
-                } else {
-                    console.log("Data", data)
-                    setFormData(data)
-                }
+                navigate("/");
             })
-            .catch((error) => {
-                console.error("Error during fetch", error);
+            .catch(error => {
+                console.error("Error during login:", error);
+                alert("Login failed. Please check your credentials and try again.");
             });
-
-    }
+    };
+    
     return (
         <div className="css" >
 
